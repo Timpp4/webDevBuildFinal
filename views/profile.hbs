@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Mega Forums</title>
+</head>
+<body>
+    
+    <nav>
+        <h4>MegaForums</h4>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/posts">Posts</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <div class="card profileDiv" >
+        <div>
+            <h1 class="p-4">Welcome back, {{user.username}}</h1>
+        </div>
+        <form class="messageBox" action="/auth/postMessage" method="POST">
+            <div class="mb-3 w-10">
+                <input type="text" class="form-control" id="message" name="message">
+                <div id="emailHelp" class="form-text">Write a short message. The message can be 128 characters long.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Post it!</button>
+        </form>
+        {{#if message}}
+            <h4 class="alert mt-4">{{message}}</h4>
+        {{/if}}
+    </div>
+
+</body>
+</html>
